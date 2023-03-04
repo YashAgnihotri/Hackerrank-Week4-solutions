@@ -1,0 +1,198 @@
+Q1 : 
+The modulo operator, %, returns the remainder of a division. For example, 4 % 3 = 1 and 12 % 10 = 2. The ordinary division operator, /, returns a truncated integer value when performed on integers. For example, 5 / 3 = 1. To get the last digit of a number in base 10, use  as the modulo divisor.
+Task
+Given a five digit integer, print the sum of its digits.
+Input Format
+The input contains a single five digit number, .
+Constraints
+Output Format
+Print the sum of the digits of the five digit number.
+Sample Input 0
+10564
+Sample Output 0
+16
+______________________________________________________________________________________________________________________________
+solution 1: 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+	
+    int n,calc;
+    int sum;
+    scanf("%d", &n);
+    for (int i=1;i<=5;i++){
+        calc=n%10;
+        sum+=calc;
+        n=n/10;
+    }
+    printf("%d",sum);
+    return 0;
+}
+____________________________________________________________________________________________________________________________________
+Q2 :
+You have been given 3 integers - l, r and k. Find how many numbers between l and r (both inclusive) are divisible by k. You do not need to print these numbers, you just have to find their count.
+Input Format
+The first and only line of input contains 3 space separated integers l, r and k.
+Constraints
+1<=l<=r<=1000 1<=k<=1000
+Output Format
+Print the required answer on a single line.
+Sample Input 0
+1 10 1
+Sample Output 0
+10
+______________________________________________________________________________________________________________________________________
+solution 2: 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int l,r,k;
+    int count = 0;
+    scanf("%d%d%d",&l,&r,&k);
+    for (int i=l;i<=r;i++){
+        if(i%k==0){
+            count+=1;
+        }
+    }
+    printf("%d",count);
+    
+    return 0;
+}
+______________________________________________________________________________________________________________________________________________
+Q3 : 
+if and else are two of the most frequently used conditionals in C/C++, and they enable you to execute zero or one conditional statement among many such dependent conditional statements. We use them in the following ways:
+if: This executes the body of bracketed code starting with  if  evaluates to true.
+if (condition) {
+    statement1;
+    ...
+}
+if - else: This executes the body of bracketed code starting with  if  evaluates to true, or it executes the body of code starting with  if  evaluates to false. Note that only one of the bracketed code sections will ever be executed.
+if (condition) {
+    statement1;
+    ...
+}
+else {
+    statement2;
+    ...
+}
+if - else if - else: In this structure, dependent statements are chained together and the  for each statement is only checked if all prior conditions in the chain are evaluated to false. Once a  evaluates to true, the bracketed code associated with that statement is executed and the program then skips to the end of the chain of statements and continues executing. If each  in the chain evaluates to false, then the body of bracketed code in the else block at the end is executed.
+if(first condition) {
+    ...
+}
+else if(second condition) {
+    ...
+}
+else if((n-1)'th condition) {
+    ....
+}
+else {
+    ...
+}
+Task
+Given a positive integer denoting , do the following:
+If , print the lowercase English word corresponding to the number (e.g., one for , two for , etc.).
+If , print Greater than 9.
+Input Format
+The first line contains a single integer, .
+Constraints
+Output Format
+If , then print the lowercase English word corresponding to the number (e.g., one for , two for , etc.); otherwise, print Greater than 9 instead.
+Sample Input
+5
+Sample Output
+five
+Sample Input #01
+8
+Sample Output #01
+eight
+Sample Input #02
+44
+Sample Output #02
+Greater than 9
+_________________________________________________________________________________________________________________________________________________
+soltuion 3:
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    switch(n){
+        case 1 : printf("one");
+            break;
+        case 2 : printf("two");
+            break;
+        case 3 : printf("three");
+            break;
+        case 4 : printf("four");
+            break;
+        case 5 : printf("five");
+            break;
+        case 6 : printf("six");
+            break;
+        case 7 : printf("seven");
+            break;
+        case 8 : printf("eight");
+            break;
+        case 9 : printf("nine");
+            break;
+        default : printf("Greater than 9");
+            break;
+       }
+       }
+_______________________________________________________________________________________________________________________
+Q4 : 
+In number theory, a palindromic prime number is a positive integer where the number is both palindrome number as well as prime number. You are given an integer n. Print "YES" (without quotes) if the given number is palindromic prime number, print "NO" (without quotes) otherwise.
+Input Format
+The only line of input contains an integer n.
+Constraints
+1 <= n <= 10000
+Output Format
+Print "YES" (without quotes) if the given number is palindromic prime number, print "NO" (without quotes) otherwise.
+Sample Input 0
+121
+Sample Output 0
+NO
+______________________________________________________________________________________________________________________________
+solution 4 :
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int num,i;
+    scanf("%d",&num);
+    int rev=num;
+    int palindrome=0,prime=0,copy=0;
+    while (rev!=0) {
+        copy=copy*10+rev%10;
+        rev=rev/10;
+    }  
+    for (i=2;i<num;i++) {
+        if (num%i==0) {
+            prime+=1;
+        }
+    }
+    if (copy==num) {
+        palindrome+=1;
+    }
+    (palindrome>0 && prime==0 && num>=0)?printf("YES"):printf("NO");
+    return 0;
+}
+
+
